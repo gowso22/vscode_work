@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <h1>배열 연습하기. var coworkers</h1>
+
+    <script>
+
+        var coworkers = ["egoing", "leezche"]
+
+    coworkers.push('duru');
+    coworkers.push('taeho');
+
+    document.write(coworkers.length);
+  
+    </script>
+
+    <br>
+
+    <input type="button" value="hi" onclick="alert('hi')"> <br>
+    <input type="text" onchange="alert('changed')"> <br>
+    <input type="text" onkeydown="alert('key down')"> <br>
+    <input type="text" onkeyup="alert('key up')"> <br>
+
+
+    <h2>버튼 2개로 구현 확인</h2>
+    <input type="button" value="night" 
+    onclick="
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color = 'white';     
+    ">
+
+
+    <input type="button" value="day" 
+    onclick="
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color = 'black';
+    ">
+
+
+    
+    <h2>버튼 하나로 변경해서 if문으로 확인중</h2>
+    <input id="night_day" type="button" value="night" onclick="
+  if(document.querySelector('#night_day').value === 'night') {
+      document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color= 'white';
+    document.querySelector('#night_day').value = 'day';   
+  } else {
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color= 'black';
+    document.querySelector('#night_day').value = 'night';   
+  }
+  ">
+
+  <h2>this로 자기 자신을 가리키기.</h2>
+  <input type="button" value="night" onclick="
+    if(this.value === 'night') {
+        document.querySelector('body').style.backgroundColor = 'black';
+      document.querySelector('body').style.color= 'white';
+      this.value = 'day';   
+    } else {
+      document.querySelector('body').style.backgroundColor = 'white';
+      document.querySelector('body').style.color= 'black';
+      this.value = 'night';   
+    } 
+    ">
+
+<h1 style="color: greenyellow;">~ 20221114 강의 연습부분</h1>
+
+
+<!-- 반복문 예제 -->
+<h2>2, 3번째 코드 3번 반복</h2>
+<script>
+  document.write('<li>1</li>');
+  
+  var i = 0;  // 변수 선언 및 초기화
+  
+  while(i<3) {
+    document.write('<li>2</li>');
+    document.write('<li>3</li>');
+    i = i + 1;
+  }
+
+  document.write('<li>4</li>');
+</script>
+
+
+
+<h2>Coworkers3</h2>
+<ul>
+  <script>
+    var coworkers = ["egoing", "leezche", "duru","taeho"]; // 배열 변수 
+    
+    var i = 0; // 반복문에 이용할 반복 횟수를 변수로 지정
+
+
+    while(i < coworkers.length) { 
+       
+      // 4로 지정하는 것은 정적, coworkers.length를 이용하여 동적(유동적)으로 사용
+
+      document.write('<li><a href=http://a.com/'+ coworkers[i] + '>' + coworkers[i] + '</a></li>');
+
+      i = i + 1;
+    }
+  </script>
+</ul>
+
+
+<script>
+  function two() {
+  document.write('<li>2-1</li>');
+  document.write('<li>2-2</li>');
+  }
+  function test() {
+  document.write('<li>반 복 확 인 중</li>');
+  document.write('<li>빔 화 질 이 안 좋 아 짐</li>');
+  }
+  document.write('<li>1</li>');
+  two();
+  test();
+  test();
+  document.write('<li>3</li>');
+  two();
+  </script>
+
+<h2>매개변수 및 인자값, 리턴값 테스트 중</h2>
+<script>
+  function sum(left, right) {
+   document.write(left+right+'<br>'); // 숫자와 숫자를 더하는 거라 더하기로 인식
+  }
+
+   function sumColorRed(left, right) {
+  document.write('<div style="color: red;">' + left+right+'</div><br>'); // 문자가 들어있어서 숫자가 들어와도 문자열로 인식하여 문자열을 연결해주는 것으로 인식
+  }
+  function sum2(left, right) {
+    return left+right; // 함수의 결과값만 따로 재사용하기 위해 return 키워드를 사용
+  }
+
+
+  sum(2,3);
+  sum(3,4); 
+  sumColorRed(1,101);
+  document.write('sum2 함수를 다로 빼서 사용중, 문자열 결과로 나와서 임의로 변경');
+
+  document.write('<div style="color: red">'+ sum2(2,3)+'</div><br>');
+  document.write('<div style="font-size: 3rem">'+sum2(2,3)+'</div><br>');
+
+
+
+  </script>
+
+<h2>자바스크립트의 객체 json 확인. "key : value " 형태</h2>
+<h2>coworkers 라는 변수 이름으로 객체 선언 테스트중</h2>
+<script>
+  
+  var coworkers = { // coworkers라는 객체 선언
+    "programmer" : "이고잉",
+    "designer" : "삼고잉"
+  }
+  coworkers.bookkeeper = "두루";
+  coworkers["data scientist"] = "태호"; // 객체 안의 key 데이터에 공백이 들어가 있을 경우
+
+  // document.write("programmer : " + coworkers.programmer + "<br>");
+  // document.write("designer : " + coworkers.designer + "<br>");
+  // document.write("bookkeeper : " + coworkers.bookkeeper + "<br>");
+  // document.write("data scientist : " + coworkers["data scientist"] + "<br>");
+  
+ </script>
+
+<!-- <h2>객체 반복 연습중</h2>
+<script>
+	for(var key in coworkers) { // coworkers 객체의 자료를 하나씩 꺼내서, 변수 이름 key라는 곳에 하나씩 할당
+                              // 객체안에 데이터가 4개가 있으므로 반복을 4번함.
+
+	  document.write(key + ' : ' + coworkers[key] + '<br>'); // coworkers의 value 출력할 때 'cowoerkers[key]'로 표현
+
+}
+</script>  -->
+
+<h2>함수 사용하여 연습</h2>
+<script>
+  coworkers.showAll = function() // 함수선언
+  {
+    for(var key in this) {
+    document.write(key + ' : ' + this[key] + '<br>');
+    }
+  }
+
+  coworkers.showAll();
+  
+      
+</script>
+</body>
+</html>
